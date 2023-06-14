@@ -10,7 +10,7 @@ export default class Camera {
         this.canvas = this.experience.canvas;
 
         this.createPerspectiveCamera();
-        this.setOrbitControls()
+        // this.setOrbitControls()
 
 
     }
@@ -23,6 +23,7 @@ export default class Camera {
             1000
         );
         this.scene.add(this.perspectiveCamera);
+        this.perspectiveCamera.rotation.x = -0.3
         this.perspectiveCamera.position.z = 1;
         this.perspectiveCamera.position.y = 0.5;
 
@@ -53,6 +54,6 @@ export default class Camera {
     }
 
     update() {
-        this.contorls.update()
+        // this.contorls.update()
     }
 }
