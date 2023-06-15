@@ -3,7 +3,7 @@ import Experience from "../Experience.js";
 
 import Room from './Room.js'
 import Enviroment from './Enviroment.js'
-import EditCars from "./EditCars.js";
+import Cars from "./Cars.js";
 
 export default class World {
     constructor() {
@@ -17,7 +17,7 @@ export default class World {
         this.resources.on('ready', () => {
             this.enviroment = new Enviroment()
             this.room = new Room()
-            this.editCars = new EditCars()
+            this.Cars = new Cars()
 
         })
 

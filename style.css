@@ -14,3 +14,48 @@
   width: 100%;
   height: 100%; 
 }
+.monsterTruckBtn{
+  width: 30%;
+  height: 100px;
+  background-color: rgba(128, 128, 128, 0.315);
+  border: 5px solid rgba(255, 255, 255, 0.664);
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  transform: translate(-50%, 0);
+}
+.monsterTruckBtn:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
+.sportCarBtn{
+  width: 30%;
+  height: 100px;
+  background-color: rgba(128, 128, 128, 0.315);
+  border: 5px solid rgba(255, 255, 255, 0.664);
+  border-radius: 10px;
+  position: absolute;
+  left: 3%;
+  bottom: 3%;
+}
+.sportCarBtn:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+
+.rellyCarBtn{
+  width: 30%;
+  height: 100px;
+  background-color: rgba(128, 128, 128, 0.315);
+  border: 5px solid rgba(255, 255, 255, 0.664);
+  border-radius: 10px;
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+}
+.rellyCarBtn:hover{
+  background-color: grey;
+  cursor: pointer;
+}
