@@ -31,8 +31,8 @@ export default class Enviroment {
     }
 
     setLampWorkBench(){
-        this.lampWorkBench = new THREE.RectAreaLight('#ffffff', 10, 0.04, 0.3)
-        this.lampWorkBench.position.set(-0.87, 0.6, -0.05)
+        this.lampWorkBench = new THREE.RectAreaLight('#ffffff', 15, 0.04, 0.3)
+        this.lampWorkBench.position.set(-0.87, 0.59, -0.05)
         this.lampWorkBench.rotation.x = - Math.PI / 2
         this.scene.add(this.lampWorkBench)
         //HELPER
