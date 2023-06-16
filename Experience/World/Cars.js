@@ -11,14 +11,18 @@ export default class Cars {
         this.room = this.resources.items.room
         this.actualRoom = this.room.scene
 
-        this.changeCars()
+
+        this.setVariables()
         this.setMonsterTruck()
         this.setSportCar()
         this.setRellyCar()
+        this.update()
+
+
     }
-    changeCars(){
-        console.log(this.actualRoom);
-        
+    setVariables(){
+        this.carZooms = {}
+        this.carZooms.zoomMonsterTruck = false
         
         
 
@@ -39,17 +43,20 @@ export default class Cars {
             if(!gsap.isTweening(this.camera.perspectiveCamera.position)){
             gsap.to(this.camera.perspectiveCamera.position, {
                 duration: 0.5,
-                y: this.zoom ? 0.5 : 0.3,
-                z: this.zoom ? 1.2 : 0.4,
+                y: this.carZooms.zoomMonsterTruck ? 0.5 : 0.3,
+                z: this.carZooms.zoomMonsterTruck ? 1.2 : 0.4,
                 onUpdate: () => {
-                    this.actualRoom.getObjectByName('room').visible = this.zoom ? false : true
-                    this.actualRoom.getObjectByName('stands').visible = this.zoom ? false : true
+                    this.actualRoom.getObjectByName('room').visible = this.carZooms.zoomMonsterTruck ? false : true
+                    this.actualRoom.getObjectByName('stands').visible = this.carZooms.zoomMonsterTruck ? false : true
                     
                 }
             })}
                 
             //PAS 'ZOOM' AAN
-            this.zoom = !this.zoom
+            this.carZooms.zoomMonsterTruck = !this.carZooms.zoomMonsterTruck
+            
+            
+            
             
             
         })
@@ -90,6 +97,5 @@ export default class Cars {
     }
 
     update() {
-        
     }
 }
