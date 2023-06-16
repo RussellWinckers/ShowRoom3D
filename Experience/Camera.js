@@ -8,9 +8,10 @@ export default class Camera {
         this.sizes = this.experience.sizes;
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
+        this.camera = this.experience.camera
 
         this.createPerspectiveCamera();
-        // this.setOrbitControls()
+        this.setOrbitControls()
 
 
     }
@@ -25,7 +26,7 @@ export default class Camera {
         this.scene.add(this.perspectiveCamera);
         this.perspectiveCamera.rotation.x = -0.3
         this.perspectiveCamera.position.z = 1.2;
-        this.perspectiveCamera.position.y = 0.5;
+        this.perspectiveCamera.position.y = 0.3;
 
         const size = 10;
         const divisions = 10;

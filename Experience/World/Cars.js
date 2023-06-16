@@ -11,24 +11,15 @@ export default class Cars {
         this.room = this.resources.items.room
         this.actualRoom = this.room.scene
 
-
-        this.setVariables()
         this.setMonsterTruck()
         this.setSportCar()
         this.setRellyCar()
-        this.update()
-
-
     }
-    setVariables(){
-        this.carZooms = {}
-        this.carZooms.zoomMonsterTruck = false
-        
-        
-
-    }
+    
     setMonsterTruck(){
         //GET CAR METERIALS
+        console.log(this.actualRoom)
+        this.monsterTruck = this.actualRoom.getObjectByName('car1')
         this.monsterTruckMainColor = this.actualRoom.getObjectByName('Cylinder015_4')
         this.monsterTruckStripeColor = this.actualRoom.getObjectByName('Cylinder015_8')
 
@@ -38,27 +29,32 @@ export default class Cars {
         document.body.appendChild(this.monsterTruckBtn)
 
         //BUTTON CLICK
-        console.log(this.camera.perspectiveCamera.position.y)
         this.monsterTruckBtn.addEventListener('click', () =>{
             if(!gsap.isTweening(this.camera.perspectiveCamera.position)){
             gsap.to(this.camera.perspectiveCamera.position, {
                 duration: 0.5,
-                y: this.carZooms.zoomMonsterTruck ? 0.5 : 0.3,
-                z: this.carZooms.zoomMonsterTruck ? 1.2 : 0.4,
+                y: this.zoom ? 0.5 : 0,
+                z: this.zoom ? 1.2 : 0.5,
                 onUpdate: () => {
-                    this.actualRoom.getObjectByName('room').visible = this.carZooms.zoomMonsterTruck ? false : true
-                    this.actualRoom.getObjectByName('stands').visible = this.carZooms.zoomMonsterTruck ? false : true
+                    this.actualRoom.getObjectByName('room').visible = this.zoom ? false : true
+                    this.actualRoom.getObjectByName('stands').visible = this.zoom ? false : true
                     
                 }
-            })}
-                
+            })
+            gsap.to(this.camera.perspectiveCamera.ratation, {
+                duration: 0.5,
+                x: this.zoom ? -0.3 : 0
+            })
+        gsap.to(this.monsterTruck.position, {
+            duration: 0.5,
+            x: this.zoom ? 0.7969233989715576 : 0.7,
+            y: this.zoom ? 1.6639673709869385 : 0,
+            z: this.zoom ? 1.2393958568572998 : 0
+        })
+        }
+            
             //PAS 'ZOOM' AAN
-            this.carZooms.zoomMonsterTruck = !this.carZooms.zoomMonsterTruck
-            
-            
-            
-            
-            
+            this.zoom = !this.zoom
         })
         
     }
@@ -97,5 +93,9 @@ export default class Cars {
     }
 
     update() {
+        console.log('test')
+        if(this.camera.perspectiveCamera.position.z === 0.4 && this.camera.perspectiveCamera.position.y === 0.3){
+            console.log('hoi')
+        }
     }
 }

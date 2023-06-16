@@ -2,6 +2,7 @@ import * as THREE from "three";
 import Experience from "../Experience.js";
 
 import Room from './Room.js'
+import Controls from './Controls.js'
 import Enviroment from './Enviroment.js'
 import Cars from "./Cars.js";
 
@@ -14,13 +15,14 @@ export default class World {
         this.camera = this.experience.camera;
         this.resources = this.experience.resources;
 
+
         this.resources.on('ready', () => {
             this.enviroment = new Enviroment()
             this.room = new Room()
-            this.Cars = new Cars()
+            this.cars = new Cars()
+            this.controls = new Controls()
 
         })
-
     }
 
 
@@ -28,7 +30,9 @@ export default class World {
 
     }
 
-    update() {
-
+    update(){
+        if(this.controls){
+        this.controls.update()
+        }
     }
 }
