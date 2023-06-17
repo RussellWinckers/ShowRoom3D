@@ -33,9 +33,9 @@ export default class Controls {
         // this.camera.perspectiveCamera.position.y = this.cursor.y * 1 
 
         //COMPLEX CONTROLS
-        this.camera.perspectiveCamera.position.x = Math.sin(this.cursor.x * Math.PI * 2) * 0.5
-        this.camera.perspectiveCamera.position.z = Math.cos(this.cursor.x * Math.PI * 2) * 0.5
-        this.camera.perspectiveCamera.position.y = this.cursor.y * 1
+        this.camera.perspectiveCamera.position.x = Math.sin(this.cursor.x * Math.PI * 1) * 0.5
+        this.camera.perspectiveCamera.position.z = Math.cos(this.cursor.x * Math.PI * 1) * 0.5
+        this.camera.perspectiveCamera.position.y = this.cursor.y * 0.5
         this.camera.perspectiveCamera.lookAt(new THREE.Vector3())
 
     }

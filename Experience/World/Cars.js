@@ -38,6 +38,7 @@ export default class Cars {
                 onUpdate: () => {
                     this.actualRoom.getObjectByName('room').visible = this.zoom ? false : true
                     this.actualRoom.getObjectByName('stands').visible = this.zoom ? false : true
+
                     
                 }
             })

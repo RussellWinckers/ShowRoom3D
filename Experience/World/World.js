@@ -31,6 +31,7 @@ export default class World {
     }
 
     update(){
+        // console.log(this.cars)
         if(this.controls){
         this.controls.update()
         }
