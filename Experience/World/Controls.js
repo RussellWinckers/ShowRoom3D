@@ -8,8 +8,12 @@ export default class Controls {
         this.camera = this.experience.camera
         this.time = this.experience.time
         this.sizes = this.experience.sizes
+        this.cars = this.experience.world.cars
 
-        this.setControls()
+        // this.setControls()
+
+        //MAIN VAR
+        this.controlsEnabled = false;
     }
     setControls(){
         this.cursor = {
@@ -18,10 +22,15 @@ export default class Controls {
         }
 
         
-        window.addEventListener('mousemove', (event) =>{
-            this.cursor.x = event.clientX / this.sizes.width - 0.5
-            this.cursor.y = - (event.clientY / this.sizes.height - 0.5)
-        })
+        window.addEventListener('mousemove', (event) => {
+            this.cursor.x = event.clientX / this.sizes.width - 0.5;
+            this.cursor.y = - (event.clientY / this.sizes.height - 0.5);
+
+            if (this.cars.animationTriggered) {
+                // Enable controls only if the animation has been triggered
+                this.controlsEnabled = true;
+            }
+        });
     }
     resize() {
         
@@ -33,10 +42,13 @@ export default class Controls {
         // this.camera.perspectiveCamera.position.y = this.cursor.y * 1 
 
         //COMPLEX CONTROLS
+        // console.log(this.controlsEnabled)
+        if (this.controlsEnabled) {
         this.camera.perspectiveCamera.position.x = Math.sin(this.cursor.x * Math.PI * 1) * 0.5
         this.camera.perspectiveCamera.position.z = Math.cos(this.cursor.x * Math.PI * 1) * 0.5
         this.camera.perspectiveCamera.position.y = this.cursor.y * 0.5
         this.camera.perspectiveCamera.lookAt(new THREE.Vector3())
+        }
 
     }
 }

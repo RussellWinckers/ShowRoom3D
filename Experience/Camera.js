@@ -11,7 +11,7 @@ export default class Camera {
         this.camera = this.experience.camera
 
         this.createPerspectiveCamera();
-        // this.setOrbitControls()
+        this.setOrbitControls()
 
 
     }
@@ -23,9 +23,10 @@ export default class Camera {
             0.1,
             1000
         );
+        // this.perspectiveCamera.rotation.reorder('YXZ')
         this.scene.add(this.perspectiveCamera);
         this.perspectiveCamera.rotation.x = -0.3
-        this.perspectiveCamera.position.z = 1.2;
+        this.perspectiveCamera.position.z = 0.8;
         this.perspectiveCamera.position.y = 0.5
 
         const size = 10;
@@ -41,9 +42,17 @@ export default class Camera {
     }
 
     setOrbitControls() {
-        this.contorls = new OrbitControls(this.perspectiveCamera, this.canvas)
-        this.contorls.enableDamping = true
-        this.contorls.enableZoom = true
+        this.controls = new OrbitControls(this.perspectiveCamera, this.canvas)
+        this.controls.enableDamping = true
+        this.controls.enableZoom = true
+        this.controls.enablePan = false
+        // this.controls.autoRotate = true
+        // this.controls.enableRotate = false
+
+        // ROTATION range
+        this.controls.maxPolarAngle = Math.PI / 2.2
+        this.controls.maxAzimuthAngle = Math.PI / 3.5;
+        this.controls.minAzimuthAngle = -Math.PI / 3.5;
     }
 
 
@@ -55,6 +64,6 @@ export default class Camera {
     }
 
     update() {
-        // this.contorls.update()
+        this.controls.update()
     }
 }
