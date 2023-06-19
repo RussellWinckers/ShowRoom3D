@@ -14,8 +14,7 @@ export default class Enviroment {
 
         this.setSunlight()
         this.setAmbientLight()
-        this.setLampWorkBench()
-        this.setTvLight()
+        this.setLamp()
     }
     setSunlight(){
         this.sunLight = new THREE.DirectionalLight('#ffffff', 0.3)
@@ -30,30 +29,16 @@ export default class Enviroment {
         this.scene.add(this.sunLightHelper)
     }
 
-    setLampWorkBench(){
-        this.lampWorkBench = new THREE.RectAreaLight('#ffffff', 15, 0.04, 0.3)
-        this.lampWorkBench.position.set(-0.87, 0.59, -0.05)
-        this.lampWorkBench.rotation.x = - Math.PI / 2
-        this.scene.add(this.lampWorkBench)
-        //HELPER
-        this.lampWorkBenchHelper = new RectAreaLightHelper(this.lampWorkBench)
-        // this.scene.add(this.lampWorkBenchHelper)
-    }
-    setTvLight(){
-        this.tvLight = new THREE.RectAreaLight('#ffffff', 10, 0.5, 0.3)
-        this.tvLight.position.set(0.97, 0.43, 0.5)
-        this.tvLight.rotation.y = Math.PI / 2
-        this.scene.add(this.tvLight)
-
-        //HELPEN
-        this.tvLightHelper = new RectAreaLightHelper(this.tvLight)
-        // this.scene.add(this.tvLightHelper)
-    }
-
     setAmbientLight(){
-        this.ambientLight = new THREE.AmbientLight('#ffffff', 0.05)
+        this.ambientLight = new THREE.AmbientLight('#ffffff', 0.2)
         this.scene.add(this.ambientLight)
 
+    }
+    setLamp(){
+        this.pointLightLamp = new THREE.PointLight('#ffffff', 0.5)
+        this.pointLightLamp.distance = 1.5
+        this.pointLightLamp.position.set(-0.87, 0.59, -0.05)
+        this.scene.add(this.pointLightLamp)
     }
 
     

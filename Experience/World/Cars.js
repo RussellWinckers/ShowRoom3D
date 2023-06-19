@@ -17,22 +17,42 @@ export default class Cars {
         this.setRellyCar()
 
         //MAIN VAR
-        this.animationTriggered = false;
+        this.animationTriggered = true;
     }
 
     setMonsterTruck() {
-        //GET CAR METERIALS
-        console.log(this.actualRoom)
-        this.monsterTruck = this.actualRoom.getObjectByName('car1')
-        this.monsterTruckMainColor = this.actualRoom.getObjectByName('Cylinder015_4')
-        this.monsterTruckStripeColor = this.actualRoom.getObjectByName('Cylinder015_8')
-
-        //ADD BUTTONS IN HTML
+        // SET HTML
+        // CAR SELECT BUTTON
         this.monsterTruckBtn = document.createElement('div')
         this.monsterTruckBtn.classList.add('monsterTruckBtn')
         document.body.appendChild(this.monsterTruckBtn)
 
-        //BUTTON CLICK
+        // CHANGE COLOR BUTTONS
+        this.colorPickerMonsterTruckContainer = document.createElement('div')
+        this.colorPickerMonsterTruckContainer.classList.add('colorPickerMonsterTruckContainer')
+        document.body.appendChild(this.colorPickerMonsterTruckContainer)
+        this.monsterTruckContainer = document.querySelector(".colorPickerMonsterTruckContainer")
+
+        this.monsterTruckColorOne = document.createElement('div')
+        this.monsterTruckColorTwo = document.createElement('div')
+        this.monsterTruckColorThree = document.createElement('div')
+        this.monsterTruckColorOne.classList.add('monsterTruckColorOne')
+        this.monsterTruckColorTwo.classList.add('monsterTruckColorTwo')
+        this.monsterTruckColorThree.classList.add('monsterTruckColorThree')
+        this.monsterTruckContainer.appendChild(this.monsterTruckColorOne)
+        this.monsterTruckContainer.appendChild(this.monsterTruckColorTwo)
+        this.monsterTruckContainer.appendChild(this.monsterTruckColorThree)
+        
+
+        
+        // THREE JS
+        //GET CAR METERIALS
+        this.monsterTruck = this.actualRoom.getObjectByName('car1')
+        this.monsterTruckMainColor = this.actualRoom.getObjectByName('Cylinder015_4')
+        this.monsterTruckStripeColor = this.actualRoom.getObjectByName('Cylinder015_8')
+
+        
+        //BUTTON CLICK GSAP ANIMATION
         this.monsterTruckBtn.addEventListener('click', () => {
             if (!gsap.isTweening(this.camera.perspectiveCamera.position)) {
                 
@@ -43,16 +63,12 @@ export default class Cars {
                     onUpdate: () => {
                         this.actualRoom.getObjectByName('room').visible = this.zoom ? false : true
                         this.actualRoom.getObjectByName('stands').visible = this.zoom ? false : true
-                    },
-                    onended: () =>{
-
-                        this.animationTriggered = true;
-                    } 
+                        this.animationTriggered = this.zoom ? false : true;
+                    }
                 })
-                gsap.to(this.camera.perspectiveCamera.ratation, {
-                    duration: 0.5,
-                    x: this.zoom ? -0.3 : 0
-                })
+                if(this.animationTriggered){
+                    console.log('test')
+                }
                 gsap.to(this.monsterTruck.position, {
                     duration: 0.5,
                     x: this.zoom ? 0.7969233989715576 : 0.7,

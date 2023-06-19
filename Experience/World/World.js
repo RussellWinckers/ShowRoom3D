@@ -2,7 +2,6 @@ import * as THREE from "three";
 import Experience from "../Experience.js";
 
 import Room from './Room.js'
-import Controls from './Controls.js'
 import Enviroment from './Enviroment.js'
 import Cars from "./Cars.js";
 
@@ -20,7 +19,6 @@ export default class World {
             this.enviroment = new Enviroment()
             this.room = new Room()
             this.cars = new Cars()
-            this.controls = new Controls()
 
         })
     }
