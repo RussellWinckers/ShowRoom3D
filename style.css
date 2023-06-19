@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body{
-  background-color: rgb(219, 219, 219);
+  background-color: rgb(199, 199, 199);
 }
 .experience{
   position: fixed;
@@ -16,11 +16,17 @@ body{
   width: 100%;
   height: 100%; 
 }
+
+
+/*  */
+/* MONSTERTRUCKBUTTONS */
+/*  */
+
 .monsterTruckBtn{
   width: 30%;
   height: 100px;
   background-color: rgba(128, 128, 128, 0.315);
-  border: 5px solid rgba(255, 255, 255, 0.664);
+  border: 2px solid rgba(255, 255, 255, 0.664);
   border-radius: 10px;
   position: absolute;
   left: 50%;
@@ -28,21 +34,80 @@ body{
   transform: translate(-50%, 0);
 }
 .monsterTruckBtn:hover{
+  border: 2px solid rgb(255, 255, 255);
   background-color: grey;
   cursor: pointer;
 }
+.monsterTruckColorContainer{
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: absolute;
+  /* background-color: black; */
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%, 0);
+  width: 300px;
+  height: 100px;
+}
+.monsterTruckColorContainer > div{
+  margin: 0 5px;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 3px solid rgb(34, 34, 34);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.monsterTruckColorContainer > div:hover{
+  transform: scale(1.05);
+}
+
+/* BUTTON ONE */
+.monsterTruckColorOne{
+  background: linear-gradient(
+    to right,
+    #23F100 0%,
+    #23F100 50%,
+    #FFFFFF 50%,
+    #FFFFFF 100%
+  );
+}
+
+/* BUTTON TWO */
+.monsterTruckColorTwo{
+  background: linear-gradient(
+    to right,
+    #00F1F1 0%,
+    #00F1F1 50%,
+    #000000 50%,
+    #000000 100%
+  );
+}
+
+/* BUTTON THREE */
+.monsterTruckColorThree{
+  background: linear-gradient(
+    to right,
+    #7500F1 0%,
+    #7500F1 50%,
+    #FFEE00 50%,
+    #FFEE00 100%
+  );
+}
+
 
 .sportCarBtn{
   width: 30%;
   height: 100px;
   background-color: rgba(128, 128, 128, 0.315);
-  border: 5px solid rgba(255, 255, 255, 0.664);
+  border: 2px solid rgba(255, 255, 255, 0.664);
   border-radius: 10px;
   position: absolute;
   left: 3%;
   bottom: 3%;
 }
 .sportCarBtn:hover{
+  border: 2px solid rgb(255, 255, 255);
   background-color: grey;
   cursor: pointer;
 }
@@ -51,13 +116,14 @@ body{
   width: 30%;
   height: 100px;
   background-color: rgba(128, 128, 128, 0.315);
-  border: 5px solid rgba(255, 255, 255, 0.664);
+  border: 2px solid rgba(255, 255, 255, 0.664);
   border-radius: 10px;
   position: absolute;
   right: 3%;
   bottom: 3%;
 }
 .rellyCarBtn:hover{
+  border: 2px solid rgb(255, 255, 255);
   background-color: grey;
   cursor: pointer;
 }

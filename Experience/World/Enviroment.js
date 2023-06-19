@@ -5,16 +5,14 @@ import Experience from "../Experience.js";
 export default class Enviroment {
     constructor() {
         this.experience = new Experience();
-        
         this.scene = this.experience.scene
         this.resources = this.experience.resources
 
 
-      
-
         this.setSunlight()
         this.setAmbientLight()
         this.setLamp()
+        this.setDoorLight()
     }
     setSunlight(){
         this.sunLight = new THREE.DirectionalLight('#ffffff', 0.3)
@@ -24,9 +22,6 @@ export default class Enviroment {
         this.sunLight.shadow.normalBias = 0.05
         this.sunLight.position.set(1, 1.6, 3)
         this.scene.add(this.sunLight)
-
-        this.sunLightHelper = new THREE.DirectionalLightHelper(this.sunLight, 1)
-        this.scene.add(this.sunLightHelper)
     }
 
     setAmbientLight(){
@@ -39,6 +34,12 @@ export default class Enviroment {
         this.pointLightLamp.distance = 1.5
         this.pointLightLamp.position.set(-0.87, 0.59, -0.05)
         this.scene.add(this.pointLightLamp)
+    }
+    setDoorLight(){
+        this.pointLightDoor = new THREE.PointLight('#ffffff', 0.3)
+        this.pointLightDoor.distance = 1.5
+        this.pointLightDoor.position.set(1, 0.5, -0.08)
+        this.scene.add(this.pointLightDoor)
     }
 
     
