@@ -12,7 +12,7 @@ export default class Enviroment {
         this.setSunlight()
         this.setAmbientLight()
         this.setLamp()
-        this.setDoorLight()
+        //this.setDoorLight()
     }
     setSunlight(){
         this.sunLight = new THREE.DirectionalLight('#ffffff', 0.3)
@@ -35,12 +35,12 @@ export default class Enviroment {
         this.pointLightLamp.position.set(-0.87, 0.59, -0.05)
         this.scene.add(this.pointLightLamp)
     }
-    setDoorLight(){
-        this.pointLightDoor = new THREE.PointLight('#ffffff', 0.3)
-        this.pointLightDoor.distance = 1.5
-        this.pointLightDoor.position.set(1, 0.5, -0.08)
-        this.scene.add(this.pointLightDoor)
-    }
+    // setDoorLight(){
+    //     this.pointLightDoor = new THREE.PointLight('#ffffff', 0.3)
+    //     this.pointLightDoor.distance = 1.5
+    //     this.pointLightDoor.position.set(1, 0.5, -0.08)
+    //     this.scene.add(this.pointLightDoor)
+    // }
 
     
     resize() {
