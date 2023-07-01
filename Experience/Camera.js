@@ -37,8 +37,10 @@ export default class Camera {
         this.controls.enableDamping = true
         this.controls.enableZoom = true
         this.controls.enablePan = false
-        // this.controls.autoRotate = true
-        // this.controls.enableRotate = false
+        
+        //ZOOM range
+        this.controls.minDistance = 0.3
+        // this.controls.maxDistance = null
 
         // ROTATION range
         this.controls.maxPolarAngle = Math.PI / 2.2
